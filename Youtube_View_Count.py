@@ -21,10 +21,10 @@ class GetViewsCount(unittest.TestCase):
         api_base_url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics"
         payload = {'id': video_id, 'key': 'AIzaSyD0crewmhY9pD7hKKOWuIjbZRcufru5NIE'}
         r = requests.get(api_base_url, params=payload, verify=False)
-        pprint(r.json())
-        link_data = r.json()
+        r.encoding = r.apparent_encoding
+        link_data = json.loads(r.text)
         if r.status_code == 200:
-            print(link_data['items.statistics.viewCount'])
+            print(link_data['items'][0]['statistics']['viewCount'])
 
 
 if __name__ == '__main__':
