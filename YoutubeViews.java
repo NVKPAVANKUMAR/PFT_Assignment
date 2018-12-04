@@ -46,7 +46,7 @@ public class YoutubeViews {
         Response resp = given().
                 param("part", "contentDetails,statistics").
                 param("id", id).
-                param("key", "AIzaSyD0crewmhY9pD7hKKOWuIjbZRcufru5NIE").
+                param("key", "API_KEY").
                 when().
                 contentType(ContentType.JSON).
                 relaxedHTTPSValidation().
