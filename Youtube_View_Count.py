@@ -19,7 +19,7 @@ class GetViewsCount(unittest.TestCase):
         youtube_url = "https://www.youtube.com/watch?v=iSB-8Yes9XE"
         video_id = get_youtube_id(youtube_url)
         api_base_url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics"
-        payload = {'id': video_id, 'key': 'AIzaSyD0crewmhY9pD7hKKOWuIjbZRcufru5NIE'}
+        payload = {'id': video_id, 'key': 'API_KEY'}
         r = requests.get(api_base_url, params=payload, verify=False)
         r.encoding = r.apparent_encoding
         link_data = json.loads(r.text)
